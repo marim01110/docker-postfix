@@ -1,14 +1,13 @@
 {
   "name": "docker-postfix",
-  "version": "1.0.1",
+  "version": "2.0.3",
   "main": "index.js",
   "repository": "git@github.com:kingsquare/docker-postfix.git",
-  "author": "Aubrey Hewes <AubreyHewes@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
     "release": "release"
   },
-  "dependencies": {
+  "devDependencies": {
     "release": "^6.1.0"
   }
 }
