@@ -11,6 +11,10 @@ fi
 /app/bin/setup-tls.sh
 /app/bin/setup-opendkim.sh
 
+if [ -x /app/opt/setup-postfix.sh ]; then
+  /app/opt/setup-postfix.sh
+fi
+
 if [ "$*" != "" ]; then
   exec "$@"
   exit $?
