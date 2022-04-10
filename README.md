@@ -1,4 +1,4 @@
-# docker-postfix
+# postfix
 
 Postfix in a container with optional SMTP authentication (sasldb), DKIM support, TLS support.
 
