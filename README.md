@@ -1,12 +1,3 @@
-[![Docker Build Status](https://img.shields.io/docker/cloud/build/kingsquare/postfix?style=flat-square)](https://hub.docker.com/r/kingsquare/postfix/builds)
-[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/kingsquare/postfix?style=flat-square)](https://hub.docker.com/r/kingsquare/postfix/builds)
-[![GitHub Tag](https://img.shields.io/github/v/tag/kingsquare/docker-postfix?style=flat-square)](https://github.com/kingsquare/docker-postfix)
-[![GitHub License](https://img.shields.io/github/license/kingsquare/docker-postfix?style=flat-square)](https://github.com/kingsquare/docker-postfix)
-[![GitHub language count](https://img.shields.io/github/languages/count/kingsquare/docker-postfix?style=flat-square)](https://github.com/kingsquare/docker-postfix)
-[![GitHub top language](https://img.shields.io/github/languages/top/kingsquare/docker-postfix?style=flat-square)](https://github.com/kingsquare/docker-postfix)
-[![Docker Pulls](https://img.shields.io/docker/pulls/kingsquare/postfix?style=flat-square)](https://hub.docker.com/r/kingsquare/postfix)
-[![Docker Stars](https://img.shields.io/docker/stars/kingsquare/postfix?style=flat-square)](https://hub.docker.com/r/kingsquare/postfix)
-
 # docker-postfix
 
 Postfix in a container with optional SMTP authentication (sasldb), DKIM support, TLS support.
@@ -15,11 +6,7 @@ Postfix in a container with optional SMTP authentication (sasldb), DKIM support,
 
 Pull from docker hub
 
-    docker pull kingsquare/postfix
-
-Build local image from repo
-
-    docker build -t kingsquare/postfix https://github.com/kingsquare/docker-postfix.git
+    docker pull marimo1110/postfix
 
 ## Usage
 
@@ -32,7 +19,7 @@ Build local image from repo
         -e maildomain=mail.example.com \
         -e smtp_user=user:pwd \
         --name postfix \
-        -d kingsquare/postfix
+        -d marimo1110/postfix
 
 	# Set multiple user credentials: -e smtp_user=user1:pwd1,user2:pwd2,...,userN:pwdN
 	```
@@ -46,7 +33,7 @@ Build local image from repo
         -e maildomain=mail.example.com \
         -e smtp_user=/etc/postfix/smtp_user \
         --name postfix \
-        -d kingsquare/postfix
+        -d marimo1110/postfix
 
 	# Set multiple user credentials: -e smtp_user=user1:pwd1,user2:pwd2,...,userN:pwdN
 
@@ -63,7 +50,7 @@ Build local image from repo
         -e dkimselector=default \
         -v /path/to/domainkeys:/etc/opendkim/domainkeys \
         --name postfix \
-        -d kingsquare/postfix
+        -d marimo1110/postfix
 	```
 
 1. Enable OpenDKIM: override all config with custom directory
@@ -77,7 +64,7 @@ Build local image from repo
         -e dkimselector=default \
         -v /path/to/etc/opendkim:/etc/opendkim \
         --name postfix \
-        -d kingsquare/postfix
+        -d marimo1110/postfix
 	```
 
 1. Enable TLS: add your SSL certificates `.key` and `.crt` files to  `/path/to/certs`.
@@ -91,7 +78,7 @@ Build local image from repo
         -e smtp_user=user:pwd \
         -v /path/to/certs:/etc/postfix/certs \
         --name postfix \
-        -d kingsquare/postfix
+        -d marimo1110/postfix
     ```
 
 1. Optional Postfix configuration passed using environment variables:

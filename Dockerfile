@@ -2,10 +2,15 @@ FROM debian:bullseye-slim as build
 
 MAINTAINER Kohei YOSHIKAWA <admin@marihome.org>
 
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN mkdir -p /etc/skel/Maildir/{new,cur,tmp}
+
 RUN set -ex; \
     \
-    DEBIAN_FRONTEND=noninteractive apt -yq --allow-releaseinfo-change update && \
-    DEBIAN_FRONTEND=noninteractive apt -yq install \
+    apt -yq --allow-releaseinfo-change update && \
+    apt -yq upgrade && \
+    apt -yq install \
         supervisor \
         ca-certificates \
         openssl \

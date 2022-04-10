@@ -10,9 +10,17 @@ tail -f /var/log/mail.log
 EOF
 
 chmod +x /opt/postfix.sh
+chmod 777 /var/spool/mail
 
-postconf -e myhostname=$maildomain
+postconf -e myhostname=mail.$maildomain
+postconf -e mydomain=$maildomain
+postconf -e myorigin=$mydomain
 postconf -F '*/*/chroot = n'
+postconf -e 'smtpd_banner = $myhostname ESMTP unknown'
+postconf -e 'mynetworks = 127.0.0.0/8 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16 [::1]/128'
+postconf -e 'smtpd_recipient_restrictions = permit_mynetworks,permit_sasl_authenticated,reject_unauth_destination'
+postconf -e 'mydestination = $mydomain, localhost'
+postconf -e 'mail_spool_directory = /var/spool/mail/'
 
 if [ "${inet_protocols}" != "" ]; then
   postconf -e inet_protocols=$inet_protocols

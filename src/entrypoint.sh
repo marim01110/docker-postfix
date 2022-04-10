@@ -11,6 +11,10 @@ fi
 /app/bin/setup-tls.sh
 /app/bin/setup-opendkim.sh
 
+touch /etc/postfix/sasl_passwd
+chmod 600 /etc/postfix/sasl_passwd
+postmap /etc/postfix/sasl_passwd
+
 if [ -x /app/opt/setup-postfix.sh ]; then
   /app/opt/setup-postfix.sh
 fi
