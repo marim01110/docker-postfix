@@ -4,8 +4,6 @@ MAINTAINER Kohei YOSHIKAWA <admin@marihome.org>
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir -p /etc/skel/Maildir/{new,cur,tmp}
-
 RUN set -ex; \
     \
     apt -yq --allow-releaseinfo-change update && \

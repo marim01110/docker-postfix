@@ -13,6 +13,7 @@ fi
 
 touch /etc/postfix/sasl_passwd
 chmod 600 /etc/postfix/sasl_passwd
+chmod 770 /etc/postfix
 postmap /etc/postfix/sasl_passwd
 
 if [ -x /app/opt/setup-postfix.sh ]; then
