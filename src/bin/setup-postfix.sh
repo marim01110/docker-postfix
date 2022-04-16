@@ -14,10 +14,10 @@ chmod 777 /var/spool/mail
 
 postconf -e myhostname=mail.$maildomain
 postconf -e mydomain=$maildomain
-postconf -e myorigin=$mydomain
+postconf -e myorigin=$maildomain
 postconf -F '*/*/chroot = n'
-postconf -e 'smtpd_banner = $myhostname ESMTP unknown'
-postconf -e 'mynetworks = 127.0.0.0/8 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16 [::1]/128'
+postconf -e 'smtpd_banner = $myhostname ESMTP'
+postconf -e 'mynetworks = 127.0.0.0/8 [::1]/128'
 postconf -e 'mydestination = $mydomain, localhost'
 postconf -e 'mail_spool_directory = /var/spool/mail/'
 

@@ -31,11 +31,11 @@ fi
 TLS_CERT_FILE="$(find /etc/postfix/certs -iname *.crt)"
 TLS_KEY_FILE="$(find /etc/postfix/certs -iname *.key)"
 
-if [[ -n "${TLS_CERT_FILE}" ]]; then
+if [ -n "${TLS_CERT_FILE}" ]; then
   # /etc/postfix/main.cf
   postconf -e smtpd_tls_cert_file="${TLS_CERT_FILE}"
 
-  if [[ -n "${TLS_KEY_FILE}" ]]; then
+  if [ -n "${TLS_KEY_FILE}" ]; then
     postconf -e smtpd_tls_key_file="${TLS_KEY_FILE}"
   fi
 
