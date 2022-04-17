@@ -25,4 +25,6 @@ if [ "$*" != "" ]; then
   exit $?
 fi
 
+/etc/init.d/saslauthd restart
+chmod a+rx /var/run/saslauthd
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf

@@ -13,9 +13,10 @@ postconf -e smtpd_recipient_restrictions=permit_sasl_authenticated,reject_unauth
 postconf -e smtpd_sasl_security_options=noanonymous
 
 # smtpd.conf
-cat >>/etc/postfix/sasl/smtpd.conf <<EOF
-pwcheck_method: auxprop
-auxprop_plugin: sasldb
+cat > /etc/postfix/sasl/smtpd.conf << EOF
+#pwcheck_method: auxprop
+pwcheck_method: saslauthd
+#auxprop_plugin: sasldb
 mech_list: PLAIN LOGIN CRAM-MD5 DIGEST-MD5 NTLM
 EOF
 
